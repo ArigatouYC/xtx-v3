@@ -1,8 +1,9 @@
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { getTopCategoryAPI } from '@/apis/getTopCategory'
 import { useRoute, onBeforeRouteUpdate } from "vue-router";
 
 
+//这个很重要
 export let useGetCategory = () => {
     let categoryData: any = ref({})
     let route = useRoute()
@@ -12,6 +13,11 @@ export let useGetCategory = () => {
         let res: any = await getTopCategoryAPI(id)
         categoryData.value = res.data.result
     }
+
+
+    onMounted(() => {
+        getCategory()
+    })
 
     onBeforeRouteUpdate((to) => {
         getCategory(to.params.id)

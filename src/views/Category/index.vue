@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+
 import GoodsItem from '@/views/Home/components/HomeProduct/components/GoodsItem/index.vue'
 import { useGetBanner } from "@/views/Category/composables/useGetBanner";
 import { useGetCategory } from "@/views/Category/composables/useGetCategory";
@@ -33,7 +34,7 @@ let { categoryData } = useGetCategory()
                 <h3>全部分类</h3>
                 <ul>
                     <li v-for="i in categoryData.children" :key="i.id">
-                        <RouterLink to="/">
+                        <RouterLink :to="`/category/sub/${i.id}`">
                             <img :src="i.picture" />
                             <p>{{ i.name }}</p>
                         </RouterLink>
