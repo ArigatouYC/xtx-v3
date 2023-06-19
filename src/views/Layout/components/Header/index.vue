@@ -1,17 +1,6 @@
 <script lang="ts" setup>
-import { getCategoryAPI } from '@/apis/layout'
-import { onMounted, ref } from 'vue'
-
-
-let listArr: any = ref([])
-let getCategory = async () => {
-    let res = await getCategoryAPI()
-    listArr.value = res.data.result
-}
-onMounted(() => {
-    getCategory()
-})
-
+import { useCounterStore } from "@/stores/navData";
+let navData = useCounterStore()
 </script>
 
 <template>
@@ -22,8 +11,8 @@ onMounted(() => {
             </h1>
             <ul class="app-header-nav">
 
-                <li class="home" v-for="item in listArr" :key="item.id">
-                    <RouterLink to="/">{{ item.name }}</RouterLink>
+                <li class="home" v-for="item in navData.listArr" :key="item.id">
+                    <RouterLink active-class="active" :to="`/category/${item.id}`">{{ item.name }}</RouterLink>
                 </li>
 
             </ul>
