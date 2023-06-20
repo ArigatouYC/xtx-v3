@@ -23,7 +23,6 @@ const router = createRouter({
           name: 'subCategory',
           component: () => import('@/views/SubCategory/index.vue'),
         },
-
       ]
     },
     {
@@ -31,8 +30,11 @@ const router = createRouter({
       component: () => import('@/views/Login/index.vue'),
       name: 'login'
     },
-
-  ]
+  ],
+  //切换路由的时候滚动到最上方
+  scrollBehavior() {
+    return { top: 0 }
+  }
 })
 
 export default router
