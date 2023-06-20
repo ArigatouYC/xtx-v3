@@ -4,13 +4,13 @@ import { useRoute, onBeforeRouteUpdate } from "vue-router";
 
 
 //这个很重要
-export let useGetCategory = () => {
-    let categoryData: any = ref({})
-    let route = useRoute()
+export const useGetCategory = () => {
+    const categoryData: any = ref({})
+    const route = useRoute()
 
-    let getCategory = async (id = route.params.id) => {
+    const getCategory = async (id = route.params.id) => {
         // 如何在setup中获取路由参数 useRoute() -> route 等价于this.$route
-        let res: any = await getTopCategoryAPI(id)
+        const res: any = await getTopCategoryAPI(id)
         categoryData.value = res.data.result
     }
 

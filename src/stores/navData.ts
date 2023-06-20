@@ -4,10 +4,10 @@ import { defineStore } from 'pinia'
 
 export const useCounterStore = defineStore('navData', () => {
 
-    let listArr: any = ref([])
+    const listArr: any = ref([])
 
-    let getCategory = async () => {
-        let res = await getCategoryAPI()
+    const getCategory = async () => {
+        const res = await getCategoryAPI()
         listArr.value = res.data.result
     }
 

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-let httpInstance = axios.create({
+const httpInstance = axios.create({
     baseURL: 'http://pcapi-xiaotuxian-front-devtest.itheima.net',
     timeout: 5000
 })

@@ -5,12 +5,12 @@ import { useRoute } from "vue-router";
 import { getCategoryFilterAPI } from "@/apis/category";
 
 
-export let useGetBread = () => {
-    let categoryData: any = ref({})
-    let route = useRoute()
+export const useGetBread = () => {
+    const categoryData: any = ref({})
+    const route = useRoute()
 
-    let getBread = async () => {
-        let res = await getCategoryFilterAPI(route.params.id)
+    const getBread = async () => {
+        const res = await getCategoryFilterAPI(route.params.id)
         categoryData.value = res.data.result
     }
     onMounted(() => {

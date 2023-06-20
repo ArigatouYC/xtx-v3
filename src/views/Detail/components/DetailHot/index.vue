@@ -17,7 +17,7 @@ let ENMTYPE = {
 }
 let title = computed(() => {
     //??????????
-    //@ts-ignore
+    // @ts-ignore
     return ENMTYPE[props.hotType]
 })
 

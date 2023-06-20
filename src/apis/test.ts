@@ -1,7 +1,7 @@
 import http from '@/utils/http'
 
 
-export let testFun = () => {
+export const testFun = () => {
     return http({
         url: 'home/category/head'
     })

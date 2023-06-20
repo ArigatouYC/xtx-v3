@@ -1,6 +1,6 @@
 import httpInstance from "@/utils/http"
 
-export let getCategoryFilterAPI = (id: any) => {
+export const getCategoryFilterAPI = (id: any) => {
     return httpInstance({
         url: '/category/sub/filter',
         params: {
@@ -8,7 +8,6 @@ export let getCategoryFilterAPI = (id: any) => {
         }
     })
 }
-
 
 
 //  data { 
