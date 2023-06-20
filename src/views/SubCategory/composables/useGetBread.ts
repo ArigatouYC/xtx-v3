@@ -12,7 +12,6 @@ export let useGetBread = () => {
     let getBread = async () => {
         let res = await getCategoryFilterAPI(route.params.id)
         categoryData.value = res.data.result
-        console.log(categoryData.value);
     }
     onMounted(() => {
         getBread()
