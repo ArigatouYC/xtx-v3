@@ -1,8 +1,8 @@
-import http from '@/utils/http'
+import httpInstance from '@/utils/http'
 
 
 export const testFun = () => {
-    return http({
+    return httpInstance({
         url: 'home/category/head'
     })
 }

@@ -1,0 +1,32 @@
+Login-index.vue
+//点击登录按钮统一进行校验
+let clickLogin = () => {
+    formRef.value.validate(async (isCheaked: boolean) => {
+        if (isCheaked) {
+
+            // 在外部申明会读不到？？
+            let { account, password } = userInfo.value
+
+            let res = await loginAPI({ account, password })
+
+            userInfo.value = res.data.result
+
+            console.log(userInfo.value);
+
+            ElNotification({
+                title: hello,
+                message: '登录成功',
+                type: 'success',
+                duration: 1500
+            })
+            router.replace({ path: '/' })
+        } else {
+            ElNotification({
+                title: '请检查',
+                message: '输入信息不符合',
+                type: 'warning',
+            })
+
+        }
+    })
+}

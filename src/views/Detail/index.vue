@@ -4,6 +4,7 @@ import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 import DetailHot from '@/views/Detail/components/DetailHot/index.vue'
 
+import { usecartStore } from "@/stores/cartStore";
 
 let detailList: any = ref({})
 let route = useRoute()
@@ -17,8 +18,40 @@ onMounted(() => {
     GetDetail()
 })
 
+let skuObj: any = ref({})
+
 let skuChange = (sku: any) => {
-    console.log(sku);
+    // console.log(sku);
+    skuObj = sku
+}
+
+let count = ref(1)
+
+let countChange = () => {
+    // console.log(count.value);
+}
+
+let cartStore = usecartStore()
+
+let addCart = () => {
+    // skuObj是ref，单被sku赋值的时候被覆盖，所以访问skuObj不用.value
+    if (skuObj.skuId) {
+        cartStore.addCart({
+            id: detailList.value.id,
+            name: detailList.value.name,
+            picture: detailList.value.mainPictures[0],
+            price: detailList.value.price,
+            count: count.value,
+            skuId: skuObj.skuId,
+            attrsText: skuObj.specsText,
+            selected: true
+        })
+    } else {
+        ElMessage({
+            type: 'warning',
+            message: '请先选择商品规格'
+        })
+    }
 }
 
 </script>
@@ -84,7 +117,7 @@ let skuChange = (sku: any) => {
                             <div class="g-service">
                                 <dl>
                                     <dt>促销</dt>
-                                    <dd>12月好物放送，App领券购买直降120元</dd>
+                                    <dd>好物放送，App领券购买直降120元</dd>
                                 </dl>
                                 <dl>
                                     <dt>服务</dt>
@@ -101,8 +134,11 @@ let skuChange = (sku: any) => {
                             <!-- 数据组件 -->
 
                             <!-- 按钮组件 -->
+
+                            <el-input-number v-model="count" :min="1" :max="99" @change="countChange" />
+
                             <div>
-                                <el-button size="large" class="btn">
+                                <el-button size="large" class="btn" @click="addCart">
                                     加入购物车
                                 </el-button>
                             </div>
