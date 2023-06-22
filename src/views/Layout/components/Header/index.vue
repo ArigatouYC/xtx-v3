@@ -1,5 +1,7 @@
 <script lang="ts" setup>
 import { useCounterStore } from "@/stores/navData";
+import HeaderCart from '@/views/Layout/components/HeaderCart/index.vue'
+
 let navData = useCounterStore()
 </script>
 
@@ -21,7 +23,7 @@ let navData = useCounterStore()
                 <input type="text" placeholder="搜一搜">
             </div>
             <!-- 头部购物车 -->
-
+            <HeaderCart></HeaderCart>
         </div>
     </header>
 </template>

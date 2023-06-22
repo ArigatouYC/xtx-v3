@@ -4,7 +4,8 @@ import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 import DetailHot from '@/views/Detail/components/DetailHot/index.vue'
 
-import { usecartStore } from "@/stores/cartStore";
+import { useCartStore } from "@/stores/cartStore";
+
 
 let detailList: any = ref({})
 let route = useRoute()
@@ -31,7 +32,7 @@ let countChange = () => {
     // console.log(count.value);
 }
 
-let cartStore = usecartStore()
+let cartStore = useCartStore()
 
 let addCart = () => {
     // skuObj是ref，单被sku赋值的时候被覆盖，所以访问skuObj不用.value
