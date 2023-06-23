@@ -4,7 +4,6 @@ import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
 import { useUserStore } from './userStore'
 import { insertCartAPI, findNewCartListAPI, delCartAPI } from '@/apis/cart'
-
 export const useCartStore = defineStore('cart', () => {
     const userStore: any = useUserStore()
     const isLogin = computed(() => userStore.userInfo.token)
@@ -18,7 +17,7 @@ export const useCartStore = defineStore('cart', () => {
     // 2. 定义action - addCart
     const addCart = async (goods: any) => {
         const { skuId, count } = goods
-        if (isLogin) {
+        if (isLogin.value) {
             // 登录之后的加入购车逻辑
             await insertCartAPI({ skuId, count })
             updateNewList()
@@ -40,7 +39,7 @@ export const useCartStore = defineStore('cart', () => {
 
     // 删除购物车
     const delCart = async (skuId: any) => {
-        if (isLogin) {
+        if (isLogin.value) {
             // 调用接口实现接口购物车中的删除功能
             await delCartAPI([skuId])
             updateNewList()
