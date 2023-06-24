@@ -8,6 +8,7 @@ import '@/styles/common.scss'
 import { lazyPlugin } from '@/directives'
 import { componentPlugin } from '@/components'
 
+import '@/permission'
 
 
 const app = createApp(App)
