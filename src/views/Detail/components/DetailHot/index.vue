@@ -4,6 +4,7 @@ import { computed, onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 
 let hotList: any = ref([])
+
 let route = useRoute()
 
 let props = defineProps({
