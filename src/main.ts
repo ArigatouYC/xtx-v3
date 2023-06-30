@@ -8,6 +8,7 @@ import router from './router'
 import '@/styles/common.scss'
 
 import { lazyPlugin } from '@/directives'
+//全局组件
 import { componentPlugin } from '@/components'
 
 import '@/permission'
