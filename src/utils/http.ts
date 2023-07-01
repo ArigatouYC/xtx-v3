@@ -15,7 +15,6 @@ httpInstance.interceptors.request.use(config => {
     let userStore: any = useUserStore()
     //外部声明报错??
     let token = userStore.userInfo.token
-
     //让请求头携带token
     if (token) {
         config.headers.Authorization = `Bearer ${token}`
