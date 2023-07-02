@@ -43,7 +43,6 @@ httpInstance.interceptors.response.use(
             userStore.clearUserInfo()
             router.push('/login')
         }
-
         return Promise.reject(error) // 必须返回一个拒绝的 Promise，否则下一个 then 将无法拿到 error 参数
     },
 
