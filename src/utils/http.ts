@@ -19,9 +19,9 @@ httpInstance.interceptors.request.use(config => {
     if (token) {
         config.headers.Authorization = `Bearer ${token}`
     }
-
     return config
-}, (e) => { Promise.reject(e) })
+},
+    (e) => { Promise.reject(e) })
 
 
 httpInstance.interceptors.response.use(
