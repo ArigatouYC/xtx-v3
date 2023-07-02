@@ -32,7 +32,6 @@ export const delCartAPI = (ids: any) => {
 }
 
 // 合并购物车
-
 export const mergeCartAPI = (data: any) => {
     return request({
         url: '/member/cart/merge',
