@@ -11,7 +11,6 @@ const httpInstance = axios.create({
 })
 
 httpInstance.interceptors.request.use(config => {
-
     let userStore: any = useUserStore()
     //外部声明报错??
     let token = userStore.userInfo.token
