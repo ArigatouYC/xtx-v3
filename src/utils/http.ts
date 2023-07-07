@@ -10,6 +10,7 @@ const httpInstance = axios.create({
     timeout: 5000
 })
 
+
 httpInstance.interceptors.request.use(config => {
     let userStore: any = useUserStore()
     //外部声明报错??
