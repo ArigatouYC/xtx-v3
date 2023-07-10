@@ -13,7 +13,6 @@ import { componentPlugin } from '@/components'
 
 import '@/permission'
 
-
 const app = createApp(App)
 const pinia = createPinia()
 pinia.use(piniaPluginPersistedstate)
