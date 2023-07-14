@@ -54,6 +54,7 @@ watch([elementX, elementY, isOutside], () => {
     positionY.value = -top.value * 2
 
 })
+
 </script>
 
 <template>
