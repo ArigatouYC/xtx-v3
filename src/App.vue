@@ -8,6 +8,7 @@ let navData = useCounterStore()
 onMounted(() => {
   navData.getCategory()
 })
+
 </script>
 
 <template>
