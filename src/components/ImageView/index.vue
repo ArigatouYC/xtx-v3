@@ -51,7 +51,6 @@ watch([elementX, elementY, isOutside], () => {
     // 控制大图的显示
     positionX.value = -left.value * 2
     positionY.value = -top.value * 2
-
 })
 
 </script>
