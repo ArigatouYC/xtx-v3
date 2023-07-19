@@ -21,7 +21,6 @@ httpInstance.interceptors.request.use(config => {
 },
     (e) => { Promise.reject(e) })
 
-
 httpInstance.interceptors.response.use(
     // 在这里定义成功响应的处理逻辑
     (response) => {
