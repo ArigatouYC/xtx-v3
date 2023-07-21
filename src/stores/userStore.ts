@@ -2,7 +2,6 @@
 
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-
 import { loginAPI } from '@/apis/user'
 import { useCartStore } from './cartStore'
 import { mergeCartAPI } from '@/apis/cart'
