@@ -1,26 +1,19 @@
 <script lang="ts" setup>
 
-
 // 表单校验（账号名+密码）
-
 import { ref } from 'vue'
-
 import 'element-plus/theme-chalk/el-message.css'
 import { useRouter } from 'vue-router'
-
 import { useUserStore } from '@/stores/userStore'
-
 import { getTime } from "@/utils/getTime";
 
 const userStore = useUserStore()
-
 // 1. 准备表单对象
 const form = ref({
     account: '',
     password: '',
     agree: true
 })
-
 // 2. 准备规则对象
 const rules = {
     account: [
@@ -109,6 +102,8 @@ const doLogin = () => {
                             </el-form-item>
                             <el-button size="large" class="subBtn" @click="doLogin">点击登录</el-button>
                         </el-form>
+                        <h3>测试账号：xiaotuxian001</h3>
+                        <h3>密码：123456</h3>
                     </div>
                 </div>
             </div>

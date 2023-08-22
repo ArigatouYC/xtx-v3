@@ -3,19 +3,15 @@ import { getLikeListAPI } from '@/apis/user'
 import { useUserStore } from '@/stores/userStore'
 import { onMounted, ref } from 'vue'
 import GoodsItem from '@/views/Home/components/HomeProduct/components/GoodsItem/index.vue'
+
 const userStore: any = useUserStore()
-
-
 const likeList: any = ref([])
 
 const getLikeList = async () => {
   const res = await getLikeListAPI({ limit: 4 })
   likeList.value = res.data.result
 }
-
 onMounted(() => getLikeList())
-
-
 </script>
 
 <template>
